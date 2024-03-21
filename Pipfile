@@ -6,9 +6,16 @@ name = "pypi"
 [packages]
 langchain = "*"
 black = "*"
+openai = "*"
+langchain-openai = "*"
+wikipedia = "*"
+newsapi-python = "*"
+python-dotenv = "*"
+langchainhub = "*"
 
 [dev-packages]
 ipykernel = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.12"
