@@ -3,7 +3,7 @@ from tools.tools import scrape_top_news
 
 
 def icebreaker():
-    news_url = lookup(source="bbc-news")
+    news_url = lookup("bbc-news")
     return news_url
 
 

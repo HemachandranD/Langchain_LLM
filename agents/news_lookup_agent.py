@@ -11,15 +11,16 @@ from tools.tools import scrape_top_news
 
 def lookup(source: str) -> str:
     llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
-    template = """Given the source {name_of_the_source} get the first article content"""
-    prompt_template = PromptTemplate(
-        template=template, input_variables=["name_of_the_source"]
-    )
+    template = """Give the source {name_of_source}, I want you to get the URL of the first article only.
+                    Your answer should contain only a URL."""
+    # Instantiation using from_template (recommended)
+    prompt = PromptTemplate.from_template(template)
+    prompt.format(name_of_source=source)
     tools_for_agent = [
         Tool(
-            name="Crawl Top news headlines from the given news source",
+            name="Crawl Top most news headlines",
             func=scrape_top_news,
-            description="Useful for when you need to find the Article Page URL",
+            description="Useful for when you need to find the Articles",
         )
     ]
 
@@ -28,7 +29,7 @@ def lookup(source: str) -> str:
     agentexecutor = AgentExecutor(agent=agent, tools=tools_for_agent, verbose=True)
 
     result = agentexecutor.invoke(
-        input={"input": prompt_template.format_prompt(name_of_the_source=source)}
+        input={"input": source}
     )
     article_url = result["output"]
     return article_url
