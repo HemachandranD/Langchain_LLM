@@ -3,7 +3,7 @@ __pycache__/
 # local bundle files
 **/.databricks/*
 .idea
-./vscode
+.vscode
 mlruns
 *.db
 .dbx
