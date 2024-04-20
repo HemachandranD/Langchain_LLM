@@ -12,5 +12,8 @@
             "console": "integratedTerminal",
             "envFile": "${workspaceFolder}/.env"
         }
-    ]
+    ],
+    "flake8.args": [
+        "--max-line-length=300"
+    ],
 }
