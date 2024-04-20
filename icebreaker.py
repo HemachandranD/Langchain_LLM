@@ -1,5 +1,4 @@
 from agents.news_lookup_agent import lookup
-from tools.tools import scrape_top_news
 
 
 def icebreaker():

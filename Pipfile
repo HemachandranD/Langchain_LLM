@@ -12,6 +12,7 @@ wikipedia = "*"
 newsapi-python = "*"
 python-dotenv = "*"
 langchainhub = "*"
+isort = "*"
 
 [dev-packages]
 ipykernel = "*"

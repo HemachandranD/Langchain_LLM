@@ -5,19 +5,21 @@ from langchain.agents import (
 from langchain_core.tools import Tool
 from langchain_openai import ChatOpenAI
 from langchain import hub
-from langchain_core.prompts import PromptTemplate
 from tools.tools import scrape_top_news
 
 
 def lookup(source: str) -> str:
-    prompt_template ="Give the source {name_of_source}, get the URL of the content. Your answer should contain only the URL"
+    prompt_template = """Give the source {name_of_source}, get the URL of the content.
+                            Your answer should contain only the URL"""
 
     llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
-    tool = [Tool(
-        name="Crawl Top most news headlines from sources",
-        func=scrape_top_news,
-        description="Useful for when you need to find the Articles",
-    )]
+    tool = [
+        Tool(
+            name="Crawl Top most news headlines from sources",
+            func=scrape_top_news,
+            description="Useful for when you need to find the Articles",
+        )
+    ]
 
     react_prompt = hub.pull("hwchase17/react")
     agent = create_react_agent(llm=llm, tools=tool, prompt=react_prompt)
