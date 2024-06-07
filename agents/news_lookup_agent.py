@@ -28,6 +28,5 @@ def lookup(source: str) -> str:
     result = agent_executor.invoke(
         input={"input": prompt_template.format(name_of_source=source)}
     )
-
     news_url = result["output"]
     return news_url

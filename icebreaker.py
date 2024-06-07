@@ -7,4 +7,5 @@ def icebreaker():
 
 
 if __name__ == "__main__":
-    icebreaker()
+    output = icebreaker()
+    print(output)
