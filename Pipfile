@@ -13,6 +13,9 @@ newsapi-python = "*"
 python-dotenv = "*"
 langchainhub = "*"
 isort = "*"
+langserve = "*"
+fastapi = "*"
+sse-starlette = "*"
 
 [dev-packages]
 ipykernel = "*"

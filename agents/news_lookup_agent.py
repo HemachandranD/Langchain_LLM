@@ -9,8 +9,8 @@ from tools.tools import scrape_top_news
 
 
 def lookup(source: str) -> str:
-    prompt_template = """Give the source {name_of_source}, get the URL of the content.
-                            Your answer should contain only the URL"""
+    prompt_template = """Give the source {name_of_source}, get the News Title and URL of the content.
+                            Your answer should contain News Title and the URL"""
 
     llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
     tool = [
